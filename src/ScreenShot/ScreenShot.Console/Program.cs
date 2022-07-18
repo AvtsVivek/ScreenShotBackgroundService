@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 // Console.WriteLine("Hello, World!");
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 
@@ -16,10 +17,11 @@ class Program
 
     while (true)
     {
-      PrintScreen ps = new PrintScreen();
-      ps.CaptureScreenToFile(di + $"\\screenShoot{Guid.NewGuid()}.png", ImageFormat.Png);
-      Thread.Sleep(10000);
-
+      var ps = new PrintScreen();
+      var fileName = DateTime.Now.Ticks;
+      System.Console.WriteLine(fileName);
+      ps.CaptureScreenToFile(di + $"\\ss{fileName}.png", ImageFormat.Png);
+      Thread.Sleep(1000);
     }
   }
 }
