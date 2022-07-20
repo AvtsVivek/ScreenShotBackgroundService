@@ -1,14 +1,18 @@
-﻿namespace ScreenShot.WinService;
+﻿using ScreenShot.Domain;
+
+namespace ScreenShot.WinService;
 
 public class WindowsBackgroundJokeService : BackgroundService
 {
   private readonly JokeService _jokeService;
   private readonly ILogger<WindowsBackgroundJokeService> _logger;
+  private readonly IPrintScreenService _printScreenService;
 
   public WindowsBackgroundJokeService(
       JokeService jokeService,
+      IPrintScreenService printScreenService,
       ILogger<WindowsBackgroundJokeService> logger) =>
-      (_jokeService, _logger) = (jokeService, logger);
+      (_jokeService, _logger, _printScreenService) = (jokeService, logger, printScreenService);
 
   protected override async Task ExecuteAsync(CancellationToken stoppingToken)
   {
@@ -16,10 +20,11 @@ public class WindowsBackgroundJokeService : BackgroundService
     {
       while (!stoppingToken.IsCancellationRequested)
       {
-        string joke = _jokeService.GetJoke();
-        _logger.LogWarning("{Joke}", joke);
-
-        await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
+        // string joke = _jokeService.GetJoke();
+        // _logger.LogWarning("{Joke}", joke);
+        var fileName = _printScreenService.CaptureScreen();
+        _logger.LogWarning("{ss fileName}", fileName);
+        await Task.Delay(TimeSpan.FromSeconds(15), stoppingToken);
       }
     }
     catch (Exception ex)

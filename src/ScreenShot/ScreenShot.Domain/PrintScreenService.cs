@@ -9,12 +9,25 @@ namespace ScreenShot.Domain;
 public interface IPrintScreenService
 {
   void CaptureScreenEvery(short seconds);
+  string CaptureScreen();
 }
 public class PrintScreenService : IPrintScreenService
 {
+  public string CaptureScreen()
+  {
+    var di = new DirectoryInfo(@"D:\\ss");
+    if (!di.Exists) { di.Create(); }
+    
+    var ps = new PrintScreen();
+    var tick = DateTime.Now.Ticks;
+    var fileName = $"\\ss{tick}.png";
+    ps.CaptureScreenToFile(di + fileName, ImageFormat.Png);
+    return fileName;
+  }
+
   public void CaptureScreenEvery(short seconds)
   {
-    DirectoryInfo di = new DirectoryInfo(@"D:\\ss");
+    var di = new DirectoryInfo(@"D:\\ss");
     if (!di.Exists) { di.Create(); }
 
 

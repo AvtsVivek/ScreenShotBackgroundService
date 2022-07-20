@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging.Configuration;
 using Microsoft.Extensions.Logging.EventLog;
+using ScreenShot.Domain;
 using ScreenShot.WinService;
 
 using IHost host = Host.CreateDefaultBuilder(args)
@@ -13,7 +14,9 @@ using IHost host = Host.CreateDefaultBuilder(args)
           EventLogSettings, EventLogLoggerProvider>(services);
 
       services.AddSingleton<JokeService>();
+      services.AddSingleton<IPrintScreenService, PrintScreenService>();
       services.AddHostedService<WindowsBackgroundJokeService>();
+
     })
     .ConfigureLogging((context, logging) =>
     {
