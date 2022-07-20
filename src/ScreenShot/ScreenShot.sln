@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreenShot.Domain", "Screen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScreenShot.WinService", "ScreenShot.WinService\ScreenShot.WinService.csproj", "{792A310E-5102-4336-B66D-249DB876E101}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreenShot.Wpf", "ScreenShot.Wpf\ScreenShot.Wpf.csproj", "{8DDBDC59-95C2-48E0-BA0D-028D2037C247}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{792A310E-5102-4336-B66D-249DB876E101}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{792A310E-5102-4336-B66D-249DB876E101}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{792A310E-5102-4336-B66D-249DB876E101}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DDBDC59-95C2-48E0-BA0D-028D2037C247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DDBDC59-95C2-48E0-BA0D-028D2037C247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DDBDC59-95C2-48E0-BA0D-028D2037C247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DDBDC59-95C2-48E0-BA0D-028D2037C247}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
