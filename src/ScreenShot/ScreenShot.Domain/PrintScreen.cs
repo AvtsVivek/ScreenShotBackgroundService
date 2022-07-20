@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
-using System.IO;
-using System.Threading;
 
-namespace ScreenShot.Console;
+namespace ScreenShot.Domain;
 
 public class PrintScreen
 {

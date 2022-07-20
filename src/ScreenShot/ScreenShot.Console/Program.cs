@@ -4,6 +4,7 @@
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
+using ScreenShot.Domain;
 
 namespace ScreenShot.Console;
 
@@ -11,17 +12,21 @@ class Program
 {
   static void Main(string[] args)
   {
-    DirectoryInfo di = new DirectoryInfo(@"D:\\ss");
-    if (!di.Exists) { di.Create(); }
+    //DirectoryInfo di = new DirectoryInfo(@"D:\\ss");
+    //if (!di.Exists) { di.Create(); }
 
 
-    while (true)
-    {
-      var ps = new PrintScreen();
-      var fileName = DateTime.Now.Ticks;
-      System.Console.WriteLine(fileName);
-      ps.CaptureScreenToFile(di + $"\\ss{fileName}.png", ImageFormat.Png);
-      Thread.Sleep(1000);
-    }
+    //while (true)
+    //{
+    //  var ps = new PrintScreen();
+    //  var fileName = DateTime.Now.Ticks;
+    //  System.Console.WriteLine(fileName);
+    //  ps.CaptureScreenToFile(di + $"\\ss{fileName}.png", ImageFormat.Png);
+    //  Thread.Sleep(1000);
+    //}
+
+    var printScreenService = new PrintScreenService();
+    printScreenService.CaptureScreenEvery(10);
+
   }
 }
