@@ -28,3 +28,5 @@ public class PrintScreenService : IPrintScreenService
     }
   }
 }
+
+// dotnet new worker --name ScreenShot.WinService
